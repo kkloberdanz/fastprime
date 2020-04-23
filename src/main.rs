@@ -68,12 +68,13 @@ fn parallel_is_prime(n: u64, num_threads: u64) -> bool {
 }
 
 fn main() {
-    let start = 576460752303423619;
+    let start = 18446744073709551416;
     let end = start + 100;
     //let start = 0;
     //let end = 100;
 
-    for num_threads in 1..17 {
+    let num_threads = 16;
+    //for num_threads in 1..17 {
         let start_time = Instant::now();
         for i in start..end {
             if parallel_is_prime(i, num_threads) {
@@ -82,5 +83,5 @@ fn main() {
         }
         let millis = start_time.elapsed().as_millis();
         println!("{},{}", num_threads, millis);
-    }
+    //}
 }
